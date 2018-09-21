@@ -2,6 +2,7 @@
   "name": "node-k8s-grahql",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "This is app to try out ku8",
   "repository": "git@github.com:MAKOSCAFEE/node-k8s-grahql.git",
   "author": "MAKOSCAFEE <barnabasmakonda@gmail.com>",
   "license": "MIT",
