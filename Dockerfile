@@ -1,5 +1,5 @@
 # [START all]
-FROM node:6-alpine
+FROM node:8-alpine
 WORKDIR /app
 COPY package.json /app/package.json
 RUN npm install --production
