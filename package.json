@@ -1,0 +1,14 @@
+{
+  "name": "node-k8s-grahql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MAKOSCAFEE/node-k8s-grahql.git",
+  "author": "MAKOSCAFEE <barnabasmakonda@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "hapi": "^17.5.4"
+  }
+}
