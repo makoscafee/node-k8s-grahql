@@ -1,4 +1,5 @@
 # [START all]
+#use node alpine to make a container small(mini-container)
 FROM node:8-alpine
 
 # Create app directory

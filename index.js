@@ -1,14 +1,24 @@
-const express = require('express');
+import { startDB, models } from './db';
+import { GraphQLServer } from 'graphql-yoga';
+import resolvers from './graphql/resolvers';
 
-// Constants
-const PORT = process.env.PORT || 8080;
-const HOST = '0.0.0.0';
+const db = startDB(`mongodb://shopify:challenge123@ds111113.mlab.com:11113/shopify-challenge`);
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello world\n');
+const context = {
+  models,
+  db
+};
+
+const server = new GraphQLServer({
+  typeDefs: `${__dirname}/graphql/schema.graphql`,
+  resolvers,
+  context
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+const opts = {
+  port: process.env.PORT || 8080
+};
+
+server.start(opts, () => {
+  console.log(`🚀 Server ready at http://localhost:${opts.port}`);
+});
