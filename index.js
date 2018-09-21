@@ -1,26 +1,14 @@
-const Hapi = require('hapi');
+const express = require('express');
 
-const server = Hapi.server({
-  port: process.env.PORT || 8080,
-  host: 'localhost'
+// Constants
+const PORT = process.env.PORT || 8080;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello world\n');
 });
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, h) => {
-    return 'Hello, world!';
-  }
-});
-
-const init = async () => {
-  await server.start();
-  console.log(`Server running at: ${server.info.uri}`);
-};
-
-process.on('unhandledRejection', err => {
-  console.log(err);
-  process.exit(1);
-});
-
-init();
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`);
